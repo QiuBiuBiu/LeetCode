@@ -1,2 +1,2 @@
 # LeetCode
-## A Small Beginning
+A Small Beginning
