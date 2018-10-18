@@ -10,3 +10,9 @@
     1.左最大连续字串<br>
     2.右最大连续字串<br>
     3.以mid为右边界的左最大连续字串 + 以mid+1为左边界的右最大连续字串<br>
+
+* 152、[Maximum Product Subarray](https://github.com/QiuBiuBiu/LeetCode/blob/master/C%2B%2B/152.cpp)<br>
+    动态规划（dp）：<br>
+    与53.Maximum Subarry的状态及状态转移相似。<br>
+    只是由于负负相乘为正的关系，这里需要维护两个数组。<br>
+    最大值从其中一个数组中产生。<br>
