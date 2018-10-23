@@ -1,3 +1,7 @@
+/*
+思路：
+    水题
+*/
 class Solution {
 public:
     int maximumProduct(vector<int>& nums) {
