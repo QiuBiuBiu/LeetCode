@@ -1,4 +1,4 @@
 # LeetCode
-## [C++](https://github.com/QiuBiuBiu/LeetCode/tree/master/C%2B%2B)<br>
-## [Python](https://github.com/QiuBiuBiu/LeetCode/tree/master/Python)<br>
-"A Small Beginning"<br>
+## [C++](https://github.com/QiuBiuBiu/LeetCode/tree/master/C%2B%2B)
+## [Python](https://github.com/QiuBiuBiu/LeetCode/tree/master/Python)
+> "A Small Beginning"
