@@ -97,7 +97,7 @@ public:
 
     int partition(vector<int>& arr, int start, int end)
     {
-        int random_index = start; // 快排算法中这里应该是随机选择[start, end)中的一个
+        int random_index = (rand() % (end - start + 1)) + start; // 快排算法中这里是随机选择[start, end]中的一个
         swap(arr[random_index], arr[end]);
         int index = start - 1;
         for (int i = start; i < end; i++)
