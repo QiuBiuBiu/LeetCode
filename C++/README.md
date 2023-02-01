@@ -1,19 +1,31 @@
-# ideas
+# 剑指offer
 
-* 20、[Generate Parentheses](https://github.com/QiuBiuBiu/LeetCode/blob/master/C%2B%2B/22.cpp)<br>
-    **二维的回溯法（back tracking & DFS）**
-    > 用l和r记录还剩余可用的左括号和有括号的数目。<br>
+# 数据结构
+## 数组
 
-* 53、[Maximum Subarray](https://github.com/QiuBiuBiu/LeetCode/blob/master/C%2B%2B/53.cpp)<br>
-    **动态规划（dp）**
-    > dp[i]即表示为以nums[i]结尾的连续字串和的最大值，则dp[i] = max(dp[i-1]+a[i], a[i]); max(dp[i]),0<=i<n,即为所求。
+## 字符串
+题目|方法1|方法2|方法3
+---|---|---|---
+[48. 旋转图像](Leetcode/48.cpp)|二维数组遍历+交换，T=O(n^2), S=O(n)
+[54. 螺旋矩阵](Leetcode/54.cpp)|二维数组遍历，T=O(n^2), S=O(n)
+[59. 螺旋矩阵 II](Leetcode/59.cpp)|二维数组遍历，T=O(n^2), S=O(n^2)
+[151. 反转字符串中的单词](Leetcode/151.cpp)|遍历，T=O(n)，S=O(n)|遍历+原地修改，T=O(n)，S=O(1)
 
-    **分治法（divide and conquer）**
-    > 最大连续字串和肯定为以下三者之一：<br>
-    >> 1.左最大连续字串<br>
-    >> 2.右最大连续字串<br>
-    >> 3.以mid为右边界的左最大连续字串 + 以mid+1为左边界的右最大连续字串<br>
+## 链表
+## 树
+## 栈和队列
 
-* 152、[Maximum Product Subarray](https://github.com/QiuBiuBiu/LeetCode/blob/master/C%2B%2B/152.cpp)<br>
-    **动态规划（dp）**
-    > 与53.Maximum Subarry的状态及状态转移相似。只是由于负负相乘为正的关系，这里需要维护两个数组。最大值从其中一个数组中产生。
+
+# 算法
+## 排序
+## 二分查找
+## 双指针
+## 分治
+## 递归回溯
+## 搜索
+## 动态规划
+## 数学
+## 位运算
+## 其他
+
+
