@@ -33,9 +33,11 @@
 # 算法
 ## 排序
 ## 二分查找
-题目|难度|方法1|方法2|方法3
+题目|难度|方法1|方法2|备注
 ---|---|---|---|---
-[153. 寻找旋转排序数组中的最小值](Leetcode/153.cpp)|中等|二分，T=O(logn)，S=O(1)
+[34. 在排序数组中查找元素的第一个和最后一个位置](Leetcode/34.cpp)|中等|二分，T=O(logn)，S=O(1)||basic, classic, template
+[33. 搜索旋转排序数组](Leetcode/33.cpp)|中等|二分，T=O(logn)，S=O(1)||try it after solved 153.
+[153. 寻找旋转排序数组中的最小值](Leetcode/153.cpp)|中等|二分，T=O(logn)，S=O(1)||classic
 [154. 寻找旋转排序数组中的最小值 II](Leetcode/154.cpp)|困难|二分，T=O(logn)，S=O(1)
 
 ## 双指针/滑动窗口

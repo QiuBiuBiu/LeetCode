@@ -1,39 +1,38 @@
+// 33. 搜索旋转排序数组
+
+
 /*
-思路：
-	二分
+    二分，T=O(logn)，S=O(1)
+    由153题可知，我们可以通过二分来找到旋转排序数组的最小值。
+    那么我们可以先找到最小值，然后以它将数组分成两段，则两段都是有序的，然后再做一次二分既可找到target
 */
+
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
-        int n = nums.size();
-        if (n == 0) return -1;
-		// 先用二分通过num[n-1]找出最小值，也就是pivot
-        int le = 0, ri = n - 1;
-        while (le < ri) {
-            int mid = (le + ri) >> 1;
-            if (nums[mid] > nums[n - 1])
-                le = mid + 1;
-            else if (nums[mid] < nums[n - 1])
-                ri = mid;
+        int i = 0, j = nums.size() - 1;
+        while (i < j)
+        {
+            int mid = (j - i) / 2 + i;
+            if (nums[mid] > nums[j]) i = mid + 1;
+            else j = mid;
         }
-		// 确定target在哪个区间
-        if (target > nums[n - 1])
-            le = 0;
-        else {
-            le = ri;
-            ri = n - 1;
+
+        if (i == 0 || target < nums[0]) // 搜索后一段有两种情况：1）最小值在数组中间，数组被分割成了 较大的一部分 和 较小的一部分 2）整个数据完全旋转了，即整体有序了，即i=0
+            return helper(i, nums.size() - 1, nums, target);
+        return helper(0, i - 1, nums, target);
+
+    }
+    int helper(int left, int right, vector<int>& nums, int target)
+    {
+        while (left < right)
+        {
+            int mid = (right - left) / 2 + left;
+            if (nums[mid] > target) right = mid - 1;
+            else if (nums[mid] < target) left = mid + 1;
+            else return mid;
         }
-		// 再次二分
-        while(le <= ri) {
-            int mid = (le + ri) >> 1;
-            if (nums[mid] > target)
-                ri = mid - 1;
-            else if (nums[mid] < target)
-                le = mid + 1;
-            else
-                return mid;
-            
-        }
+        if (left < nums.size() && nums[left] == target) return left;
         return -1;
     }
 };

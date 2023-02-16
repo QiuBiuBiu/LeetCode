@@ -4,6 +4,7 @@
 
 /*
     二分， T=O(logn)，S=O(1)
+    PS: 这种解法虽然简单，但不容易理解，二分最好还是套模版，参考leetcode第34题
 */
 class Solution {
 public:
