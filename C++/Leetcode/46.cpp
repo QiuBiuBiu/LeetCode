@@ -3,31 +3,7 @@
 
 
 /*
-    回溯法
-*/
-class Solution {
-public:
-    vector<vector<int>> res;
-    vector<vector<int>> permute(vector<int>& nums) {
-        perm(nums, 0, nums.size() - 1);
-        return res;
-    }
-    void perm(vector<int>& a, int s, int e) {
-        if (s == e) {
-            res.push_back(a);
-            return ;
-        }
-        for (int i = s; i <= e; i++) {
-            swap(a[i], a[s]);
-            perm(a, s + 1, e);
-            swap(a[i], a[s]);
-        }
-    }
-};
-
-
-/*
-    回溯法
+    回溯法，T=O(n*n!)
 */
 class Solution {
 public:
@@ -48,6 +24,40 @@ public:
             swap(nums[k], nums[i]);
             dfs(nums, k + 1);
             swap(nums[k], nums[i]);
+        }
+    }
+};
+
+
+/*
+    回溯法，T=O(n*n!)
+*/
+class Solution {
+public:
+    vector<vector<int>> res;
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<int> vis(nums.size(), 0);
+        vector<int> path;
+        dfs(nums, 0, path, vis);
+        return res;
+    }
+    void dfs(vector<int>& nums, int cnt, vector<int>& path, vector<int>& vis)
+    {
+        if (cnt == nums.size())
+        {
+            res.emplace_back(path);
+            return ;
+        }
+        for (int i = 0; i < nums.size(); i++)  // 每次从0开始枚举
+        {
+            if (vis[i] == 0) // 需要借助vis数组来判断是否该数字被取过
+            {
+                vis[i] = 1;
+                path.emplace_back(nums[i]);
+                dfs(nums, cnt + 1, path, vis);
+                path.pop_back();
+                vis[i] = 0;
+            }  
         }
     }
 };

@@ -32,7 +32,8 @@ public:
 };
 
 /*
-    2）用一个unordered_set来去重
+    2）回溯法，T=O(n*n!)
+    用一个unordered_set来去重
 */
 class Solution {
 public:
@@ -58,6 +59,80 @@ public:
                 swap(nums[k], nums[i]);                
             }
             st.insert(nums[i]);
+        }
+    }
+};
+
+/*
+    3）回溯法，T=O(n*n!)
+    用一个unordered_set来去重
+*/
+class Solution {
+public:
+    vector<vector<int>> res;
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        vector<int> vis(nums.size(), 0);
+        vector<int> path;
+        dfs(nums, 0, path, vis);
+        return res;
+    }
+    void dfs(vector<int>& nums, int cnt, vector<int>& path, vector<int>& vis)
+    {
+        if (cnt == nums.size())
+        {
+            res.emplace_back(path);
+            return ;
+        }
+        unordered_set<int> st;
+        for (int i = 0; i < nums.size(); i++) 
+        {
+            if (vis[i]) continue;
+            if (st.find(nums[i]) == st.end()) // 用一个unordered_set来去重
+            {
+                st.insert(nums[i]);
+                vis[i] = 1;
+                path.emplace_back(nums[i]);
+                dfs(nums, cnt + 1, path, vis);
+                path.pop_back();
+                vis[i] = 0;
+            }  
+        }
+    }
+};
+
+
+/*
+    3）回溯法，T=O(n*n!)
+    排序后借助vis数组来去重
+*/
+class Solution {
+public:
+    vector<vector<int>> res;
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        sort(nums.begin(), nums.end()); // 先排序
+        vector<int> vis(nums.size(), 0);
+        vector<int> path;
+        dfs(nums, 0, path, vis);
+        return res;
+    }
+    void dfs(vector<int>& nums, int cnt, vector<int>& path, vector<int>& vis)
+    {
+        if (cnt == nums.size())
+        {
+            res.emplace_back(path);
+            return ;
+        }
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if (vis[i]) continue;
+            if (i > 0 && nums[i] == nums[i - 1] && vis[i - 1] == 0) // 去重
+                continue;
+
+            vis[i] = 1;
+            path.emplace_back(nums[i]);
+            dfs(nums, cnt + 1, path, vis);
+            path.pop_back();
+            vis[i] = 0;
         }
     }
 };
