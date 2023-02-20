@@ -1,7 +1,9 @@
 // 剑指 Offer 38. 字符串的排列
+// 输入一个字符串，打印出该字符串中字符的所有排列。
+
 
 /*
-    dfs，T=O(n!)
+    1）回溯法，T=O(n!)
 */
 class Solution {
 public:
@@ -38,7 +40,7 @@ public:
 };
 
 /*
-    剑指offer上提供的递归回溯法，T=O(n!)
+    2）剑指offer上提供的递归回溯法，T=O(n!)
 */
 class Solution {
 public:
@@ -59,6 +61,38 @@ public:
         {
             for (int i = k; i < s.size(); i++)
             {
+                swap(s[i], s[k]);
+                dfs(k + 1, s);
+                swap(s[i], s[k]);
+            }
+        }
+    }
+};
+
+
+/*
+    3）回溯法，利用set去重，T=O(n!)
+*/
+class Solution {
+public:
+    vector<string> res;
+    vector<string> permutation(string s) {
+        dfs(0, s);
+        return res;
+    }
+    void dfs(int k, string s)
+    {
+        if (k == s.size())
+        {
+            res.push_back(s);
+        }
+        else
+        {
+            set<char> st;
+            for (int i = k; i < s.size(); i++)
+            {
+                if (st.find(s[i]) != st.end()) continue;
+                st.insert(s[i]);
                 swap(s[i], s[k]);
                 dfs(k + 1, s);
                 swap(s[i], s[k]);
