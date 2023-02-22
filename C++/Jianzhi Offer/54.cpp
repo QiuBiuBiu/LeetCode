@@ -30,7 +30,7 @@ public:
         get(root, k);
         return res;
     }
-    void get(TreeNode* root, int& k)
+    void get(TreeNode* root, int& k)  // 注意这里必须是k的引用，或者可以把k设置为成员变量
     {
         if (k <= 0) return; // 提前返回
         if (root->right) get(root->right, k);

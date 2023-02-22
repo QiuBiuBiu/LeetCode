@@ -7,7 +7,7 @@
 class Solution {
 public:
     vector<int> getLeastNumbers(vector<int>& arr, int k) {
-        priority_queue<int, vector<int>, less<int> > q; // 最大堆
+        priority_queue<int> q; // 最大堆: priority_queue<int, vector<int>, less<int> >
         vector<int> res;
         if (k == 0) return res;
 

@@ -1,5 +1,9 @@
 // 剑指 Offer 65. 不用加减乘除做加法
 
+
+/*
+    位运算
+*/
 class Solution {
 public:
     int add(int a, int b) {
@@ -17,5 +21,17 @@ public:
         } while(b);
 
         return a;
+    }
+};
+
+
+/*
+    位运算（递归版）
+*/
+class Solution {
+public:
+    int add(int a, int b) {
+        if (b == 0) return a;
+        return add(a ^ b, static_cast<unsigned int>(a & b) << 1);
     }
 };
