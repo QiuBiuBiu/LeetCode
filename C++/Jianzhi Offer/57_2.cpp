@@ -96,7 +96,7 @@ public:
                     tmp[k - i] = k;
                 res.push_back(tmp);
 
-                sum += ++j;
+                sum += ++j; // 或者 sum -= i++;
             }
             else if (sum < target) sum += ++j;
             else sum -= i++;
