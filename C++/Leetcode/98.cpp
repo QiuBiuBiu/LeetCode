@@ -22,3 +22,30 @@ public:
         return isValidBST(root->right);
     }
 };
+
+/*
+    （非递归解法）中序遍历，T=O(n)，S=O(n)
+*/
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        long long pre = LLONG_MIN;
+        stack<TreeNode* > sk;
+        while (root || !sk.empty())
+        {
+            while (root)
+            {
+                sk.push(root);
+                root = root->left;
+            }
+            auto cur = sk.top();
+            sk.pop();
+
+            if (cur->val <= pre) return false;
+            pre = cur->val;
+
+            root = cur->right;
+        }
+        return true;
+    }
+};
