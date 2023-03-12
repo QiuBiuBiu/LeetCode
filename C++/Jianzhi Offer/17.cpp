@@ -16,6 +16,27 @@ public:
 };
 
 /*
-    2）全排列法
-    // Todo
+    2）dfs，全排列
+    当n很大时，我们需要用string模拟数字。然后dfs来全排列
 */
+class Solution {
+public:
+    vector<int> res;
+    vector<int> printNumbers(int n) {
+        dfs("", 0, n);
+        return res;
+    }
+    void dfs(string num, int k, int n)
+    {
+        if (k == n)
+        {
+            int number = stoi(num);
+            if (number) res.emplace_back(number);
+            return ;
+        }
+        for (int i = 0; i < 10; ++i)
+        {
+            dfs(num + to_string(i), k + 1, n);
+        }
+    }
+};

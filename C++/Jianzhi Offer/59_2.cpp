@@ -1,4 +1,5 @@
-// 面试题59 - II. 队列的最大值
+// 剑指 Offer 59 - II. 队列的最大值
+
 
 /*
     单调队列
@@ -28,7 +29,7 @@ public:
             cnt++;
         }
         dq.push_back(value);
-        while (cnt--) dq.push_back(value); // 替代。但是会使得dq中的元素和q中的一致，没有index“失效”判断机制来减少dq中元素的存储
+        while (cnt--) dq.push_back(value); // 一开始的做法是用最大值来替代队列里的较小值，会使得dq中的元素和q中的一致，没有index“失效”判断机制来减少dq中元素的存储
     }
     
     int pop_front() {
@@ -82,7 +83,7 @@ public:
 
         pop_index++;
 
-        while (!dq.empty() && dq.front().idx <= pop_index) dq.pop_front();
+        while (!dq.empty() && dq.front().idx <= pop_index) dq.pop_front(); // 用index来移除"失效"元素
 
         int val = q.front();
         q.pop();
