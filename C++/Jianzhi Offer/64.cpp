@@ -11,12 +11,12 @@ public:
         sum += k;
     }
     int sumNums(int n) {
-        clear(); // leetcode多测试样例，会导致sumNums()会被多次调用，因此需要在每次调用前把静态成员变量置零
+        clear();    // leetcode多测试样例，会导致sumNums()会被多次调用，因此需要在每次调用前把静态成员变量置零
 
         vector<Solution> res(n);
-        return Solution::sum;
+        return sum;
     }
-    static void clear() {
+    void clear() {
         sum = k = 0;
     }
     static int k;
@@ -28,7 +28,7 @@ int Solution::sum = 0;
 
 
 /*
-    2）逻辑运算符的短路效应
+    2）逻辑运算符的短路效应+递归
 */
 class Solution {
 public:
