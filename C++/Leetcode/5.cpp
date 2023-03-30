@@ -10,7 +10,7 @@
 
 
 /*
-    1）双指针，T=O(n)，S=O(1)
+    1）双指针，T=O(n^2)，S=O(1)
     枚举回文串可能出现的index，然后利用双指针由中心向外扩散找可能的最大值
 */
 class Solution {
@@ -59,7 +59,7 @@ public:
 };
 
 /*
-    2）动态规划，T=O(n)，S=O(n^2)
+    2）动态规划，T=O(n^2)，S=O(n^2)
     记dp[i][j]为i到j的子串是否为回文串，则必有dp[i][i]=1；
     又当s[i]和s[j]相等时，且满足以下任意条件：
         a) i = j - 1
@@ -74,7 +74,7 @@ public:
         for (int i = 0; i < n; i++) 
             dp[i][i] = 1;
         int maxLen = 1, maxIndex = 0;
-        for (int i = n; i >= 0; i--)
+        for (int i = n - 1; i >= 0; i--)
         {
             for (int j = i + 1; j < n; j++)
             {

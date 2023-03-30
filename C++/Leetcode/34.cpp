@@ -6,6 +6,9 @@
 /*
     二分，T=O(logn)，S=O(1)
     此题可以总结二分的模版
+    1) 当更新right = mid时，mid应为 = (right - left) / 2 + left，最后return left
+    2) 当更新left = mid时，mid应为 = (right - left + 1) / 2 + left， 最后return right
+    用只有两个数的极端情况推理，如果不是上面的组合，二分算法都会陷入while死循环。
 */
 class Solution {
 public:
